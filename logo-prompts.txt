@@ -1,0 +1,21 @@
+工具：内置 image_gen（图像生成／编辑），未使用 CLI。
+最终文件：项目根目录 logo.png。
+采用方案：金线徽章（原第四版）。
+结构参考：用户选定的圆形书页与双回看箭头图标。
+配色参考：午夜蓝、香槟金、象牙白与青蓝。
+规格：正方形 PNG，圆形以外透明。
+
+最终生成提示词：
+Use case: precise-object-edit / logo-brand.
+Input roles are strict:
+IMAGE 1 is the actual logo design to optimize. Keep its open-book + DOUBLE LEFT REWIND CHEVRON design.
+IMAGE 2 is ONLY a COLOR AND FINISH reference. Borrow its midnight-blue, champagne-gold, warm-ivory and turquoise palette. Do not copy its compass, needle, ticks, or any other pictorial elements.
+
+Required design from IMAGE 1: circular badge, two large left-pointing chevrons integrated into the left half of an open book, an upright pale page on the right with a golden backing leaf, two sweeping lower page bands joining at a crisp central fold. Preserve this arrangement and immediate recognizability.
+Replace the color assignments precisely using IMAGE 2's palette: the circle and all internal negative spaces become rich opaque midnight navy (#14234F); the outer left chevron and right backing leaf become luminous champagne gold; the inner left chevron becomes turquoise/cyan; the principal upright right page and middle lower page ribbon remain warm ivory; the lower left band is gold and the lower right band is turquoise. Remove the old red/orange and green-teal field. Rich navy, champagne, ivory and turquoise should be the complete color family.
+
+Craft: exceptionally smooth precise edges, graceful page curves, beautifully controlled joins and tips, even purposeful gaps, optically balanced and centered proportions. Keep the circle's navy field uniform and entirely opaque. Any gentle two-tone fold definition is contained inside the page shapes, not in the background.
+Output: ONE complete refined logo per image, square 1:1 canvas, circular silhouette with comfortable even transparent exterior margins. Preserve true transparent alpha outside the circle only.
+No text, no letters, no numbers, no compass, no physical book mockup, no background texture, no noisy pixels, no distressing, no grain, no alpha holes inside the navy circle, no watermark, no checkerboard, no presentation board.
+VERSION 04 — FINE GOLD BADGE.
+Refine the original book-and-two-rewind-chevron mark with carefully aligned angles and elegantly resolved curves. Compact it slightly within the circular navy field to create comfortable margins. Add exactly ONE fine champagne-gold inset circular keyline near the edge of the navy badge, echoing only the gold finish of IMAGE 2. Add one delicate golden page-edge accent on the ivory page. Preserve the substantial gold and turquoise chevrons. This is a polished publisher's emblem with understated fine finishing. No compass marks, no ticks, no extra rings, no inscriptions, no embellishments.

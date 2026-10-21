@@ -1,0 +1,44 @@
+最终文件：项目根目录 banner.jpg。
+工具：内置 image_gen 生成与编辑；FFmpeg 完成尺寸与格式导出，未使用图像生成 CLI。
+导出规格：2560×1440 像素、RGB、JPEG（质量参数 2，4:4:4 色度），小于 6MB。
+最终画面：现代编辑式拼贴，无人物、头像或人形剪影；书架为局部背景，五个主题词在各自对应的图像旁分散错落排布。
+本轮调整：采用已生成的分散排布稿，重新导出；弃用中央两行集中排布的后续稿。
+图表均为概念性视觉示意，不代表真实数据、实证结果或特定历史事件的原始档案。
+
+五个主题词的项目内容依据：
+这些标签是对现有内容的归纳，不是原书的统一章名或学派分类。
+1. 市场与价格：经济学如何改变我们的生活/第01章-斯密-凯恩斯-经济学的双子星.md；经济学如何改变我们的生活/第03章-弗里德曼-从价格理论到货币理论.md；重读商业经典/第14章-西蒙-定价制胜.md。
+2. 增长与制度：经济学如何改变我们的生活/第09章-索洛-增长的方程.md；经济学如何改变我们的生活/第10章-罗默-诺德豪斯-增长的始与终.md；经济学如何改变我们的生活/第11章-阿西莫格鲁-增长的制度之维.md。
+3. 认知与决策：重读商业经典/第02章-卡尼曼-思考快与慢.md；重读商业经典/第03章-塞勒-错误的行为.md；经济学如何改变我们的生活/第21章-卡尼曼-经济学遇见心理学.md。
+4. 组织与管理：重读商业经典/第06章-德鲁克-管理的实践.md；重读商业经典/第09章-圣吉-第五项修炼.md。
+5. 竞争与战略：重读商业经典/第11章-波特-竞争战略.md；7Powers-七种力量/00-总目录.md。
+
+实际采用的分散排布稿生成记录：
+Use case: precise-object-edit / editorial collage.
+Image 1 is the existing banner whose overall editorial style the user likes. Refine THIS collage, preserving the beautiful modern magazine-paper montage language, navy/ivory/turquoise/champagne-gold palette, layered documentary fragments, clean bookshelf fragment, delicate connecting curves, and subtle print texture. Keep the same WIDE 16:9 composition, for final export at 2560 x 1440 pixels.
+
+CRITICAL CHANGE 1 — REMOVE PEOPLE COMPLETELY:
+Remove ALL three large economist portraits. Also remove ALL people from every small background clipping: faces, heads, busts, profile silhouettes, crowds, factory workers, pedestrians, human figures, and head-shaped brain illustrations. Replace their areas with relevant diagrams, book/document fragments, architecture, industrial and urban imagery, networks and abstract conceptual shapes. The final image must contain absolutely no human face, head, portrait, human profile, silhouette or person anywhere, even tiny.
+
+CRITICAL CHANGE 2 — EXACTLY FIVE NEW SUBJECT LABELS:
+Delete every old school label and introduce exactly these five Chinese phrases, rendered correctly and with equal visual importance:
+1. "市场与价格"
+2. "增长与制度"
+3. "认知与决策"
+4. "组织与管理"
+5. "竞争与战略"
+These are project themes, NOT historical school names. No other words, names or headings. In particular the old three school names must disappear completely.
+
+VISUAL THEMES — INTERWOVEN, NOT FIVE BOXED INFOGRAPHIC CARDS:
+"市场与价格": a precise supply/demand curve, abstract auction/price-paper fragments and market diagrams.
+"增长与制度": photographic cutouts of industrial development, infrastructure, contemporary city architecture and institutional buildings, accompanied by conceptual growth-chart fragments. No people.
+"认知与决策": a branching decision tree, probability/choice tokens, paired paths and carefully composed abstract decision diagrams. No head, brain silhouette, or person icon.
+"组织与管理": abstract organizational networks made from simple geometric nodes and connections, process-flow fragments and clean architectural or business-document cutouts. Every node is geometric, never a human icon.
+"竞争与战略": elegant competitive-positioning diagrams, geometric strategic maps and structural barrier/advantage motifs, integrated into the collage with the same palette.
+Keep a modest MODERN LIBRARY BOOKSHELF fragment as one background layer, roughly 10–15 percent of the composition. Use uncluttered contemporary shelving and normal hardcover books.
+
+COMPOSITION:
+Replace the former portrait-dominated mass with a sophisticated rich but breathable landscape of all five themes. Balance the five labels across the CENTRAL HORIZONTAL BAND; keep each label clear and none disproportionately larger. Place all five complete labels and their core conceptual motifs inside the central 58 percent of canvas width and central 27 percent of height so the key message survives a channel-header crop. The more expansive surrounding areas hold secondary bookshelves, paper textures, graphs, buildings and geometric shapes. Use overlapping clipped images and paper edges, with visual flow and negative space. Avoid a rigid five-column template.
+The style should remain contemporary and intellectual, not ancient, sepia or medieval. No crumbling paper. Historical development is suggested through layered document, industry, city and data fragments.
+Graphs are conceptual decorative diagrams, not real measurements: no fabricated readable numerical claims, news headlines, quotations or dates.
+Output one finished opaque image. No UI, frame, watermark, logo, people, faces, heads or avatars. Exactly the five specified Chinese labels.
