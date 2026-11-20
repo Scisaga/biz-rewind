@@ -1,8 +1,10 @@
 最终文件：项目根目录 banner.jpg。
-工具：内置 image_gen 生成与编辑；FFmpeg 完成尺寸与格式导出，未使用图像生成 CLI。
-导出规格：2560×1440 像素、RGB、JPEG（质量参数 2，4:4:4 色度），小于 6MB。
-最终画面：现代编辑式拼贴，无人物、头像或人形剪影；书架为局部背景，五个主题词在各自对应的图像旁分散错落排布。
-本轮调整：采用已生成的分散排布稿，重新导出；弃用中央两行集中排布的后续稿。
+当前版本：2026-10-22，再次缩小字号，五组文字交错排布。
+工具：内置 image_gen 编辑；Windows System.Drawing 完成尺寸与 JPEG 格式导出，未使用图像生成 CLI。
+导出规格：2560×1440 像素、RGB、JPEG（质量参数 95），文件大小 1,264,455 字节，小于 6MB。
+最终画面：现代编辑式拼贴，无人物、头像或人形剪影；书架为局部背景，五个主题词使用进一步缩小的字号与纸片衬底，在图像之间高低交错，带有轻微角度变化。
+本轮调整：按用户“字体再小一点、交错一点、不用显示全”的要求，将上一版中央两行布局改为自然错落的五组小标签，保留配色、拼贴风格和主要图像元素，并修补旧标签位置。完整画面保留五组文字，不再要求桌面裁切后全部显示。
+当前检查：核对完整画面中的五个主题词、字号变化与交错布局，并检查导出图片的尺寸、JPEG 格式和文件大小；未进行线上上传检查。
 图表均为概念性视觉示意，不代表真实数据、实证结果或特定历史事件的原始档案。
 
 五个主题词的项目内容依据：
@@ -13,7 +15,8 @@
 4. 组织与管理：重读商业经典/第06章-德鲁克-管理的实践.md；重读商业经典/第09章-圣吉-第五项修炼.md。
 5. 竞争与战略：重读商业经典/第11章-波特-竞争战略.md；7Powers-七种力量/00-总目录.md。
 
-实际采用的分散排布稿生成记录：
+上一版分散排布稿生成记录（历史保留，非当前文字布局）：
+该版五个主题词分散错落排布，使用 FFmpeg 导出为 2560×1440、RGB、JPEG（质量参数 2，4:4:4 色度）；当时弃用了另一张中央两行稿。本轮是在该分散排布稿上重新编辑。
 Use case: precise-object-edit / editorial collage.
 Image 1 is the existing banner whose overall editorial style the user likes. Refine THIS collage, preserving the beautiful modern magazine-paper montage language, navy/ivory/turquoise/champagne-gold palette, layered documentary fragments, clean bookshelf fragment, delicate connecting curves, and subtle print texture. Keep the same WIDE 16:9 composition, for final export at 2560 x 1440 pixels.
 
@@ -42,3 +45,59 @@ Replace the former portrait-dominated mass with a sophisticated rich but breatha
 The style should remain contemporary and intellectual, not ancient, sepia or medieval. No crumbling paper. Historical development is suggested through layered document, industry, city and data fragments.
 Graphs are conceptual decorative diagrams, not real measurements: no fabricated readable numerical claims, news headlines, quotations or dates.
 Output one finished opaque image. No UI, frame, watermark, logo, people, faces, heads or avatars. Exactly the five specified Chinese labels.
+
+上一版中央两行编辑提示词（2026-10-22，历史保留）：
+该版使用较小字号，以上三、下二的两行集中排布；导出文件大小为 1,351,204 字节。该版曾检查中央 2560×423 横条（x=0、y=509）和中央 1546×423 区域（x=507、y=509），五组文字均完整保留。上述裁切结果仅适用于该历史版本。
+Use case: precise-object-edit / editorial collage typography repositioning.
+Asset type: YouTube channel banner, final composition 2560 x 1440, landscape 16:9.
+Input image: the referenced local banner.jpg is the EDIT TARGET, not a style reference. Edit this existing image.
+
+Primary request: make the five Chinese theme labels smaller and cluster them tightly near the center so ALL FIVE survive the narrow central desktop banner crop. Keep the established rich modern editorial paper collage, navy / ivory / turquoise / champagne-gold palette, bookshelf fragment, city skyline, bridge, institutional buildings, decision-tree diagrams, graph fragments, geometric networks, coins, chess pieces, delicate gold curves, and print texture. Change only the text labels and the small paper surfaces immediately behind their old and new positions; preserve the background artwork and positions as closely as possible.
+
+EXACT TEXT, each rendered once with correct simplified Chinese:
+"市场与价格"
+"增长与制度"
+"认知与决策"
+"组织与管理"
+"竞争与战略"
+
+CRITICAL GEOMETRY:
+Treat the canvas coordinates as 2560 x 1440. ALL FIVE complete labels, including their small ivory torn-paper backings and thin gold/turquoise underlines, must fit entirely inside the central rectangle x=600..1960, y=590..850. This is a compact text cluster about 53 percent of the canvas width and 18 percent of its height. Absolutely no theme text outside this rectangle.
+Arrange a loosely staggered but tidy compact two-row cluster:
+Upper row: 市场与价格 centered around (800,650), 增长与制度 around (1280,650), 认知与决策 around (1760,650).
+Lower row: 组织与管理 centered around (1040,795), 竞争与战略 around (1520,795).
+Use the same elegant dark navy Chinese Song-style type, equal importance, reduced to roughly 60 percent of the original font size, approximately 44 px on this 2560-wide canvas. Each label should be a compact unobtrusive ivory paper slip about 260-290 px wide and 75-85 px tall, with a modest thin underline. Small labels should remain crisp with strong contrast.
+
+Remove the five large original labels completely and seamlessly restore those places with matching nearby collage paper / visual texture; no leftover duplicate letters or empty obvious rectangular holes. Preserve the original full-canvas richness and full-bleed collage. The outer and lower collage can still contain diagrams and motifs but NO topic labels. Do not add a giant central box, new main title, giant heading, new slogan, people, faces, portraits, avatars, or new subject matter.
+
+Output one finished opaque banner image, wide 16:9. No crop guides, safe-area rectangles, annotations, editor UI, dimming overlays, frame, or watermark. Exactly five small Chinese theme labels clustered at the canvas center; no other added readable text.
+
+当前版本实际采用的编辑提示词（2026-10-22，再缩小与交错排布）：
+Use case: precise-object-edit / editorial collage typography refinement.
+Asset type: existing 2560 x 1440 YouTube channel banner, full-bleed 16:9.
+Input image: referenced banner.jpg is the EDIT TARGET. Refine this exact collage.
+
+USER REQUEST: make the type smaller again, with a looser, staggered, interwoven placement. The user explicitly no longer requires all five labels to remain visible in a narrow desktop crop. Prioritize a natural collage composition.
+
+Preserve the existing navy / ivory / turquoise / champagne-gold palette, bookshelf, city and bridge, institutional building, graphs, decision tree, coins, geometric organization nodes, networks, chess pieces, curved lines, paper textures, and full-canvas visual balance. Only adjust the five labels, their backings, and small immediately adjacent patches needed to restore the old label locations.
+
+Exactly five complete simplified-Chinese labels, each once:
+"市场与价格"
+"增长与制度"
+"认知与决策"
+"组织与管理"
+"竞争与战略"
+
+TYPE SIZE: noticeably reduce the present font size by about 30 percent, to approximately 34–36 px on a 2560 px-wide canvas. Render elegant crisp dark-navy Chinese Song-style type with equal modest visual importance. Shrink the ivory paper slips to fit the smaller type, about 205–230 px wide and 60–70 px tall, retaining a fine restrained gold or turquoise underline. The labels should feel like small editorial annotations within the artwork, leaving the imagery dominant.
+
+PLACEMENT: replace the aligned three-over-two block with five independent, naturally staggered small slips, weaving through the central collage at different heights. Approximate centers on the 2560 x 1440 canvas:
+市场与价格 near (750, 650), beside the market graph / coins.
+增长与制度 near (1220, 550), near the bridge / institutional architecture.
+认知与决策 near (1740, 700), beside the decision tree.
+组织与管理 near (1100, 865), near the geometric organization diagram.
+竞争与战略 near (1810, 960), toward the strategy graph / chess area.
+These positions are a loose composition guide: use subtle offsets and slight paper-angle variation, with upright readable lettering. Spread the five slips across this central field without creating a tidy grid, aligned rows, a straight horizontal baseline, or a single joined title panel. Do not force every label into one thin horizontal safe area. Desktop cropping may omit a label or part of the design, which is acceptable. Keep every full label present on the full uncropped canvas.
+
+Seamlessly restore paper textures / collage fragments where the previous larger slips were. Preserve the underlying illustration as closely as possible. No leftover duplicates or ghost letters. No new headline, slogan, logo, people, faces, portraits, avatars, crop guides, boundary boxes, UI, dimming overlays, frame, or watermark.
+
+Output one opaque finished banner, wide 16:9, with the five noticeably smaller labels in an organic staggered composition.

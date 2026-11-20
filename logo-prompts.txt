@@ -1,11 +1,11 @@
-工具：内置 image_gen（图像生成／编辑），未使用 CLI。
+工具：内置 image_gen（图像生成／编辑）及 Windows System.Drawing（正圆几何校正与透明 PNG 导出），未使用图像生成 CLI。
 最终文件：项目根目录 logo.png。
-采用方案：金线徽章（原第四版）。
+采用方案：金线徽章（原第四版），2026-10-22 修正外轮廓与金圈的圆形几何。
 结构参考：用户选定的圆形书页与双回看箭头图标。
 配色参考：午夜蓝、香槟金、象牙白与青蓝。
-规格：正方形 PNG，圆形以外透明。
+规格：1254×1254 正方形 RGBA PNG，圆形以外透明。
 
-最终生成提示词：
+原始方案生成提示词（历史保留）：
 Use case: precise-object-edit / logo-brand.
 Input roles are strict:
 IMAGE 1 is the actual logo design to optimize. Keep its open-book + DOUBLE LEFT REWIND CHEVRON design.
@@ -19,3 +19,43 @@ Output: ONE complete refined logo per image, square 1:1 canvas, circular silhoue
 No text, no letters, no numbers, no compass, no physical book mockup, no background texture, no noisy pixels, no distressing, no grain, no alpha holes inside the navy circle, no watermark, no checkerboard, no presentation board.
 VERSION 04 — FINE GOLD BADGE.
 Refine the original book-and-two-rewind-chevron mark with carefully aligned angles and elegantly resolved curves. Compact it slightly within the circular navy field to create comfortable margins. Add exactly ONE fine champagne-gold inset circular keyline near the edge of the navy badge, echoing only the gold finish of IMAGE 2. Add one delicate golden page-edge accent on the ivory page. Preserve the substantial gold and turquoise chevrons. This is a polished publisher's emblem with understated fine finishing. No compass marks, no ticks, no extra rings, no inscriptions, no embellishments.
+
+本轮修正记录（2026-10-22）：
+原图检查：画布 1254×1254；按 alpha≥128 统计，外轮廓包围盒为 1104×1088，金圈包围盒为 1054×1036，分别存在 16 和 18 像素的宽高差。
+处理方式：先用内置 image_gen 编辑两轮，保留书页、双回看箭头及配色；生成稿仍有轻微轮廓起伏，因此在 PNG 导出阶段使用 Windows System.Drawing 按圆心与半径作几何校正。
+最终几何：画布 1254×1254，外轮廓和金圈共用圆心 (626.5, 626.5)；外轮廓半径 560；金圈中心线半径 524、线宽 12，即内半径 518、外半径 530；金圈外缘到徽章外缘间距 30 像素。
+导出说明：第二轮生成稿下移 5 像素以对齐画布圆心；距圆心 507 像素以内保留该稿像素，507–510 像素作平滑衔接；外环使用该稿的深蓝及金色采样，并平滑角向颜色变化。以径向距离构建外轮廓透明边缘与金圈覆盖率，保留抗锯齿；圆内不透明，圆外透明。此步骤仅处理几何导出，未调用图像生成 CLI。
+最终检查：外轮廓包围盒 (67,67)–(1186,1186)，宽高均为 1120；金圈包围盒 (97,97)–(1156,1156)，宽高均为 1060；两者圆心均为 (626.5,626.5)，四周留白相等，透明角落保留。外轮廓使用 alpha≥128 统计；金圈以外环金色像素阈值 R>150、G>110、B<0.86R、G>0.6R 统计。像素采样与抗锯齿会使逐角度的边缘半径读数有约 1 像素差异。
+文件规格：1254×1254、RGBA PNG，1,070,905 字节。
+
+本轮第一轮编辑提示词：
+Use case: precise-object-edit / logo-brand geometric correction.
+Input image: the referenced local logo.png is the EDIT TARGET. This is a very small, precise correction of an established logo.
+
+Primary request: correct the slightly flattened, irregular outer silhouette and inset champagne-gold ring into two clean, true, concentric CIRCLES. The current source is 1254 x 1254, but its badge silhouette measures approximately 1104 wide x 1088 high, and its gold ring approximately 1054 wide x 1036 high. Eliminate that ellipticity and the slight unevenness.
+
+Preserve the complete internal open-book and double-left-rewind-chevron emblem exactly as in the reference: shapes, page curves, folds, arrangement, scale, position, gold / turquoise / warm ivory colors, and finish. Preserve the midnight-navy badge field. The only intended design changes are geometric regularity of the two circular contours and their even spacing.
+
+Precise geometry, expressed on the square 1254 x 1254 canvas:
+- Center the circular badge and gold ring at the SAME point, approximately (627,627).
+- Outer opaque navy boundary: a Euclidean circle of radius approximately 550 pixels, equal horizontal and vertical diameter, perfectly smooth constant radius at every angle.
+- Exactly ONE inset fine champagne-gold circular keyline, centerline radius approximately 520 pixels, uniform stroke approximately 12 pixels wide.
+- Consistent navy margin between the outer circle and gold ring all the way around.
+- Comfortable even transparent exterior margins on all four sides.
+- Flat frontal geometry, no perspective or tilt, no oval, no squircle, no egg shape, no hand-drawn wobble, no polygonal segments, no lopsided thickness, no shadow or glow extending beyond the circle.
+Use clean precise geometric circle construction and smoothly antialiased alpha edges. Keep the original subtle gold finish inside the uniformly thick gold stroke.
+
+Output one complete opaque-inside circular logo on a truly transparent exterior, square 1:1 PNG. Preserve genuine alpha transparency outside the circular silhouette and full opacity inside it. No text, no watermark, no checkerboard pattern, no presentation board, no new decorations, no extra rings, no additional outer gold border. Keep the book and two rewind chevrons untouched.
+
+本轮第二轮编辑提示词（几何导出前的最终生成稿）：
+Use case: precise-object-edit / logo-brand.
+Edit target: the referenced transparent circular logo. Make ONLY its two circular contours geometrically exact. Preserve the book, rewind chevrons, color palette, lighting, fill, and all internal details.
+
+STRICT CORRECTION: the current navy silhouette still measures 1126 px wide and 1118 px high on a 1254 x 1254 square canvas. The ring is 1066 px wide and 1058 px high. They remain slightly elliptical. Correct BOTH to perfect mathematical circles with identical horizontal and vertical diameters.
+
+Use ONE shared center at (626.5, 626.5) on the 1254 square:
+The outer navy circle must be exactly 1120 x 1120, with equal transparent padding at the top, bottom, left, and right.
+The single inset gold circle must be exactly 1060 x 1060 outer diameter, concentric with that silhouette, with a smooth uniformly thick fine 12 px stroke.
+Every point of each circular contour must be at a constant radial distance from its center. Construct smooth geometrical circular paths, not a hand-drawn outline or a near-circle traced from the reference. Uniform 30 px navy spacing from the outside boundary to the gold ring. Smooth antialiased edges.
+
+Keep the source book/rewind mark in place at its current scale. Make no other design changes. All content inside the navy badge remains opaque. Outside is truly transparent. Square 1:1 PNG. No new symbols, no extra border, no added glow, no shadows outside the badge, no text, no watermark, no checkerboard pattern.
